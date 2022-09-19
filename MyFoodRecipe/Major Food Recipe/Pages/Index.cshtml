@@ -1,0 +1,283 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<head>
+    <!--fontawsome script for icons-->
+    <script 
+        src="https://kit.fontawesome.com/c65c3f2840.js"
+            crossorigin="anonymous">
+    </script>
+
+
+    <link rel="stylesheet" href="~/css/site.css" />
+  <style>
+      .demo-recipe{
+         
+      }
+      .d-recipe img{
+          width: 350px;
+          border-radius:3px;
+         
+      }
+    
+      .display-5{
+          background-color:Tomato;
+          padding:12px;
+          border-radius:8px;
+          font-family:'Lucida Sans';
+          font-size:70px;
+          text-align:center;
+          color:azure;
+      }
+
+      .card{
+         
+          background-color:darkseagreen;
+          margin-right:24px;
+         
+      }
+      <!--contact us-->
+      .contact-left{
+          flex-basis:35%;
+      }
+
+        .contact-left p {
+            margin-top: 30px;
+        }
+
+        .contact-left p i{
+            margin-right: 15px;
+            font-size: 25px;
+        }
+
+        .contact-right {
+            flex-basis: 60%;
+        }
+
+        .contact-right form{
+           width: 80%;
+           margin-left: 20%;
+        }
+        .social-icons a{
+            text-decoration:none;
+            font-size:30px;
+            margin-top: 30px;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            display: inline-block;
+            
+        }
+        form input, form textarea{
+            width:100%;
+            padding:15px;
+            margin:15px 0;
+            font-size:14px;
+            outline:none;
+        }
+
+
+      
+  </style>
+</head>
+<div class="banner">
+  
+    <h1 class="display-5">  <img src="~/img/burger-logo.jpg" style="border-radius:60%" width="12%" />&nbsp;Food Recipe Hub!</h1>
+</div><br />
+<!--single recipe-->
+<div  style="display:flex" class="demo-recipe">
+    <figure>
+        <img style="margin:12px" src="~/img/slide4.jpg" alt="slide 4 " width="250px" height="150px">
+            <h5>Banana Pancakes </h5>
+        <p>Prep: 15min | Cook : 5min</p>
+    </figure>
+    <figure>
+        <img style="margin:12px" src="~/img/slide3.jpg" alt="slide 3 " width="250px" height="150px">
+        <h5>Pizza Medium </h5>
+        <p>Prep: 15min | Cook : 25min</p>
+    </figure>
+    <figure>
+        <img style="margin:12px" src="~/img/slide2.jpg" alt="slide 2" width="250px" height="150px">
+        <h5>Chiense Vegetables </h5>
+        <p>Prep: 18min | Cook : 12min</p>
+    </figure>
+    <figure>
+        <img style="margin:12px" src="~/img/slide1.jpg" alt="slide 1" width="250px" height="150px">
+        <h5>Nan Rolls  </h5>
+        <p>Prep: 15min | Cook : 7min</p>
+    </figure>
+   
+</div>
+
+<div class="text-center">
+ 
+    <h2>Popular Dishesh! </h2>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+            <li data-target="#demo" data-slide-to="3"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner" style="width:50px 50px">
+           
+            <div class="carousel-item active">
+                <img src="~/img/slide1.jpg" alt="slide 1" width="650px" height="350px">
+               
+            </div>
+            <div class="carousel-item">
+                <img src="~/img/slide2.jpg" alt="slide 2" width="650px" height="350px">
+            </div>
+            <div class="carousel-item">
+                <img src="~/img/slide3.jpg" alt="slide 3 " width="650px" height="350px">
+            </div>
+            <div class="carousel-item">
+                <img src="~/img/slide4.jpg" alt="slide 4 " width="650px" height="350px">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev"  href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div>
+    <br />
+  <hr />
+    <div class="img-container">
+        <h2>
+          
+             Go For Hunt!
+        </h2>
+    
+    <div style="display:flex" class="img">
+            <figure>
+        <img style="margin:12px" src="~/img/slide4.jpg" alt="slide 4 " width="250px" height="150px">
+                <h5><strong>Rolls</strong></h5>
+            </figure>
+            <figure>
+        <img style="margin:12px" src="~/img/slide3.jpg" alt="slide 3 " width="250px" height="150px">
+                <h5><strong>Pizza Minia</strong></h5>
+            </figure>
+            <figure>
+        <img style="margin:12px" src="~/img/slide2.jpg" alt="slide 2" width="250px" height="150px">
+                <h5><strong>Pan Cakes</strong></h5>
+            </figure>
+            <figure>
+        <img style="margin:12px" src="~/img/slide1.jpg" alt="slide 1" width="250px" height="150px">
+                <h5><strong>Serve Dishes</strong></h5>
+            </figure>
+    </div>
+    </div>
+    <hr />
+    <!--Card conatiner-->
+  <div class="card-container">
+      <h2>Our Recipe</h2><br />
+    <div class="col d-flex justify-content-center">
+        <div class="card" style="width:300px">
+            <img class="card-img-top" src="~/img/menu.jpg" alt="Card image">
+            <div class="card-body">
+                    <a class="btn btn-sm btn-dark" asp-area="" asp-controller="" asp-action="/Index">View Recipe</a>
+                    <h4 class="card-title">Chicken Vesuvio</h4>
+                    <p class="card-text">Enjoyed the food.</p>
+            </div>
+
+        </div>
+
+            <div class="card" style="width:300px">
+                <img class="card-img-top" src="~/img/menu.jpg" alt="Card image">
+                <div class="card-body">
+                    <a class="btn btn-sm btn-dark" asp-area="" asp-controller="" asp-action="/Index">View Recipe</a>
+                    <h4 class="card-title">Chicken Vesuvio</h4>
+                    <p class="card-text">Enjoyed the food.</p>
+                </div>
+
+            </div>
+
+            <div class="card" style="width:300px">
+                <img class="card-img-top" src="~/img/menu.jpg" alt="Card image">
+                <div class="card-body">
+                    <a class="btn btn-sm btn-dark" asp-area="" asp-controller="" asp-action="/Index">View Recipe</a>
+                    <h4 class="card-title">Chicken Vesuvio</h4>
+                    <p class="card-text">Enjoyed the food.</p>
+                </div>
+
+            </div>
+
+            <div class="card" style="width:300px">
+                <img class="card-img-top" src="~/img/menu.jpg" alt="Card image">
+                <div class="card-body">
+                    <a class="btn btn-sm btn-dark" asp-area="" asp-controller="" asp-action="/Index">View Recipe</a>
+                    <h4 class="card-title">Chicken Vesuvio</h4>
+                    <p class="card-text">Enjoyed the food.</p>
+                </div>
+
+            </div>
+    </div>
+  </div>
+
+  <br />
+  <hr />
+  <div id="about-section">
+  <div class="about-us">
+      <h2>About Us</h2><br />
+      <p style="text-align:justify">
+            By the 1800s, cooking had become a hobby throughout the world. Using the newest technology and using a new publishing idea, 
+            Mrs Beeton (1836–1865) published her famous ‘Book of Household Management’, in 24 parts between 1857 and 1861. 
+            Around that same time the American cook Fannie Farmer (1857–1915) devoted herself to cooking. She published the book ‘The Boston Cooking School Cookbook’ in 1896 which had 1849 recipes.
+            <br />
+            The next revolution in popular culture came with introduction of the media cooks. 
+            The first was Philip Harben who was first on radio, with newspaper columns and books. 
+            Then he was first on British television, before Fanny Craddock.
+            <br />
+            TV cooking programs brought the recipes of cooks to a new audience who wanted to try out new ways of cooking. In the early days, the recipes were available by post from the BBC and later with the introduction of the CEEFAX text on screen system, 
+            they became available on the television. The new companies of Channel 4 and S4C also brought recipes to the television with their own text system called ORACLE. Today the television is still a major source of recipe information, with world-wide cooks and chefs such as Julia Child, Jamie Oliver, Nigella Lawson and Rachael Ray having TV shows and websites giving the details of all their recipes.
+            <br />
+        </p>
+  </div>
+</div>
+</div>
+<hr />
+<!--Contact Section -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Us</h1>
+                <p><i class="fa-solid fa-envelope"></i> <b>foodrecipehub@gmail.com</b></p>
+                <p><i class="fa-brands fa-telegram"></i> <b>+91 1234 56 7890</b></p>
+                <div class="social-icons">
+                    <a href="https://facebook.com/">
+                        <i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://twitter.com/">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com/">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://linkedin.com/">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
+                <a href="#" download class="btn btn-danger">Sample Recipe</a>
+            </div>
+                <div class="contact-right">
+                    <form action="">
+                        <input  type="text" name="Name" placeholder="Your Name" required/>
+                        <input  type="email" name="Email" placeholder="Your Email" required />
+                        <textarea name="message" id="message" rows="6"  placeholder="Message For Food Hub.."></textarea>
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RestroMgmtSystem.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Customers</h1>
+
+<p>
+    <a class="btn btn-sm btn-success"asp-action="Create">Create New</a>
+</p>
+<table class="table" style="background-color:#FFEBAD">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> |*@
+
+                <a class="btn btn-sm btn-primary" asp-action="Details" asp-route-id="@item.CustomerId">Details</a> 
+                @*<a asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>|*@
+                <a class ="btn btn-sm btn-danger" asp-action="Identity" asp-controller="Menus" asp-action="Index">Goto Menu</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

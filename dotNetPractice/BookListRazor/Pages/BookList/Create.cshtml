@@ -1,0 +1,48 @@
+﻿@page
+@model BookListRazor.Pages.BookList.CreateModel
+
+<br />
+<h2 class="text-info">Create New Book</h2>
+<br />
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Books.BookName"> </label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Books.BookName" class="form-control"/> 
+            </div>
+         </div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Books.BookAuthor"> </label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Books.BookAuthor" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Books.ISBN"> </label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Books.ISBN" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3 offset-4">
+                <input type="submit" value="Create" class="btn btn-primary form-control"/> 
+            </div>
+
+            <div class="col-3">
+                <a asp-page="Index" class="btn btn-success from-control">Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+
