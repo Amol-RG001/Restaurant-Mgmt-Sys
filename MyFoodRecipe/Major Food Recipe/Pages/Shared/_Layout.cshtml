@@ -13,8 +13,8 @@
             <div class="container">
                
                 <a class="navbar-brand" style="color:antiquewhite" asp-area="" asp-page="/Index"> <img src="~/img/food-logo.png" width="58px" />Food Recipe Hub</a>
-                &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-                &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -52,8 +52,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-page="/Index">User Recipes</a>
                         </li>
+                    
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Index">Feedback</a>
+                            <a class="nav-link text-light" href="~/feedback.html">Feedback</a>
                         </li>
                         <li class="nav-item">
                             <a href="#contact" class="nav-link text-light" >Contact</a>
@@ -62,6 +63,7 @@
                     </ul>
                   
                 </div>
+                <partial name="_LoginPartial" />
             </div>
         </nav>
     </header>

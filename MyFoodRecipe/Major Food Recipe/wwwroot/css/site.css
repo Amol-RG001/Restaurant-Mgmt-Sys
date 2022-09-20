@@ -1,5 +1,67 @@
 ﻿/*Amol's Code*/
 
+.demo-recipe {
+}
+
+.d-recipe img {
+    width: 350px;
+    border-radius: 3px;
+}
+
+.display-5 {
+    background-color: Tomato;
+    padding: 12px;
+    border-radius: 8px;
+    font-family: 'Lucida Sans';
+    font-size: 70px;
+    text-align: center;
+    color: azure;
+}
+
+.card {
+    background-color: darkseagreen;
+    margin-right: 24px;
+}
+<!-- contact us-- >
+.contact-left {
+    flex-basis: 35%;
+}
+
+.contact-left p {
+    margin-top: 30px;
+}
+
+    .contact-left p i {
+        margin-right: 15px;
+        font-size: 25px;
+    }
+
+.contact-right {
+    flex-basis: 60%;
+}
+
+    .contact-right form {
+        width: 80%;
+        margin-left: 20%;
+    }
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    font-size: 14px;
+    outline: none;
+}
+
 
 
 
