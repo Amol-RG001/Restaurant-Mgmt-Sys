@@ -1,0 +1,39 @@
+﻿@model FoodRecipe.Models.FoodSubCategory
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>FoodSubCategory</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="FoodSubCategoryId" />
+            <div class="form-group">
+                <label asp-for="FoodSubCategoryName" class="control-label"></label>
+                <input asp-for="FoodSubCategoryName" class="form-control" />
+                <span asp-validation-for="FoodSubCategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodCategoryId" class="control-label"></label>
+                <select asp-for="FoodCategoryId" class="form-control" asp-items="ViewBag.FoodCategoryId"></select>
+                <span asp-validation-for="FoodCategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

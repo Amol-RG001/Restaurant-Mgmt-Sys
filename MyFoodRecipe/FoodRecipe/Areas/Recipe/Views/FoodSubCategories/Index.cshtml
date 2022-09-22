@@ -1,0 +1,32 @@
+﻿@model IEnumerable<FoodRecipe.Models.FoodSubCategory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+ <div class="card-columns">
+    @foreach (var item in Model) {
+        <div class="card border border-danger" >
+                <div class="card-header font-weight-bold">
+                    @item.FoodSubCategoryName
+                </div>
+                <div class="card-body ">
+                    @*@Html.DisplayNameFor(modelItem => item.FoodSubCategoryName) : @item.FoodSubCategoryName*@
+                    <br />
+                    @Html.DisplayNameFor(modelItem => item.FoodCategory) : @item.FoodCategory.FoodCategoryName
+                </div>
+                <div class="card-footer">
+                    <a asp-action="Edit" asp-route-id="@item.FoodSubCategoryId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.FoodSubCategoryId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.FoodSubCategoryId">Delete</a>
+                </div>
+        </div>
+     }
+
+ </div>

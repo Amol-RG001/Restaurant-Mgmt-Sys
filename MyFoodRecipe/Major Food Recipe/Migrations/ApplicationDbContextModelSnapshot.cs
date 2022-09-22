@@ -19,6 +19,72 @@ namespace Major_Food_Recipe.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Major_Food_Recipe.Models.AddFoodRecipe", b =>
+                {
+                    b.Property<int>("FoodRecipeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("FoodCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FoodRecipeName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<int>("FoodSubCategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FoodRecipeId");
+
+                    b.HasIndex("FoodCategoryId");
+
+                    b.HasIndex("FoodSubCategoryId");
+
+                    b.ToTable("FoodRecipes");
+                });
+
+            modelBuilder.Entity("Major_Food_Recipe.Models.FoodCategory", b =>
+                {
+                    b.Property<int>("FoodCategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FoodCategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasKey("FoodCategoryId");
+
+                    b.ToTable("FoodCategories");
+                });
+
+            modelBuilder.Entity("Major_Food_Recipe.Models.FoodSubCategory", b =>
+                {
+                    b.Property<int>("FoodSubCategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("FoodCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FoodSubCategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasKey("FoodSubCategoryId");
+
+                    b.HasIndex("FoodCategoryId");
+
+                    b.ToTable("FoodSubCategories");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -213,6 +279,28 @@ namespace Major_Food_Recipe.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Major_Food_Recipe.Models.AddFoodRecipe", b =>
+                {
+                    b.HasOne("Major_Food_Recipe.Models.FoodCategory", null)
+                        .WithMany("AddFoodRecipes")
+                        .HasForeignKey("FoodCategoryId");
+
+                    b.HasOne("Major_Food_Recipe.Models.FoodSubCategory", "FoodSubCategory")
+                        .WithMany("AddFoodRecipes")
+                        .HasForeignKey("FoodSubCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Major_Food_Recipe.Models.FoodSubCategory", b =>
+                {
+                    b.HasOne("Major_Food_Recipe.Models.FoodCategory", "FoodCategory")
+                        .WithMany("FoodSubCategories")
+                        .HasForeignKey("FoodCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

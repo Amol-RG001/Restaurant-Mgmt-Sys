@@ -13,7 +13,7 @@
             <div class="container">
                
                 <a class="navbar-brand" style="color:antiquewhite" asp-area="" asp-page="/Index"> <img src="~/img/food-logo.png" width="58px" />Food Recipe Hub</a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
 
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -58,6 +58,23 @@
                         </li>
                         <li class="nav-item">
                             <a href="#contact" class="nav-link text-light" >Contact</a>
+                        </li>
+
+                        <!--Admin Dropdown-->
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#">
+                                Admin
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item"
+                                   asp-area="Recipe" asp-controller="FoodCategories" asp-action="Index">Add Category</a>
+                                <a class="dropdown-item"
+                                   asp-area="Recipe" asp-controller="FoodSubCategories" asp-action="Index">Add Sub Category</a>
+                                <a class="dropdown-item"
+                                   asp-area="Recipe" asp-controller="AddFoodRecipes" asp-action="Index">Add Food Recipe</a>
+
+                            </div>
                         </li>
                         
                     </ul>
