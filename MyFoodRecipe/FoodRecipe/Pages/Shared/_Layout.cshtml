@@ -1,4 +1,20 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using FoodRecipe.Models.Enums
+@inject SignInManager<IdentityUser> _signInManager
+@inject UserManager<IdentityUser> _userManager
+@{
+    bool isLoggeedIn = _signInManager.IsSignedIn(this.User);
+    bool isUserAdmin = false;
+    IdentityUser user = await _userManager.GetUserAsync(this.User);
+
+    if(user != null){
+         isUserAdmin = await _userManager.IsInRoleAsync(user, MyIdentityRoleNames.RecipeAdmin.ToString());
+    }
+  
+}
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -68,11 +84,18 @@
                                 Admin
                             </a>
                             <div class="dropdown-menu">
+
+        @if(isLoggeedIn){
+            @if(isUserAdmin){ //only and only Admin can access it
                                 <a class="dropdown-item"
                                    asp-area="Recipe" asp-controller="FoodCategories" asp-action="Index">Add Category</a>
-                                <a class="dropdown-item"
+            
+                                   <a class="dropdown-item"
                                    asp-area="Recipe" asp-controller="FoodSubCategories" asp-action="Index">Add Sub Category</a>
-                                <a class="dropdown-item"
+            }                
+                                   
+        }      
+                                   <a class="dropdown-item"
                                    asp-area="Recipe" asp-controller="AddFoodRecipes" asp-action="Index">Add Food Recipe</a>
 
                             </div>
