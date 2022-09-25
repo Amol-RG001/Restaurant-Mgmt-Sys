@@ -10,9 +10,11 @@ namespace FoodRecipe.Models
      {
             [Key]
             [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
+            [Required(ErrorMessage = "You must choose sub Category")]
             public int FoodSubCategoryId { get; set; }
 
-            [Display(Name = "Food Sub-Category")]
+            [Display(Name = "Sub Category")]
             [Required(ErrorMessage = "{0} cannot be empty.")]
             [StringLength(50, ErrorMessage = "{0} cannot have more than {1} characters.")]
             public string FoodSubCategoryName { get; set; }

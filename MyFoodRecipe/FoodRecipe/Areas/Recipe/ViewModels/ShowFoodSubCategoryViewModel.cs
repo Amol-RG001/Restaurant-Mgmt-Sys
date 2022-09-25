@@ -7,8 +7,8 @@ namespace FoodRecipe.Areas.Recipe.ViewModels
 {
     public class ShowFoodSubCategoryViewModel
     {
-        [Display(Name = "Select Category:")]
-        [Required(ErrorMessage = "Please select a category for displaying the Foods")]
+        [Display(Name = "Select Sub Category:")]
+        [Required(ErrorMessage = "Please select a sub category for displaying the Foods")]
         public int FoodSubCategoryId { get; set; }
 
         public ICollection<FoodSubCategory> FoodSubCategories { get; set; }

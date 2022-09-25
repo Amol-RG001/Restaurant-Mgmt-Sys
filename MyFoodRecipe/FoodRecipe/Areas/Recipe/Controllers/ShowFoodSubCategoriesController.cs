@@ -1,5 +1,6 @@
 ﻿using FoodRecipe.Areas.Recipe.ViewModels;
 using FoodRecipe.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
@@ -9,6 +10,7 @@ using System.Linq;
 namespace FoodRecipe.Areas.Recipe.Controllers
 {
     [Area("Recipe")]
+    [Authorize]
     public class ShowFoodSubCategoriesController : Controller
     {
        
@@ -25,7 +27,7 @@ namespace FoodRecipe.Areas.Recipe.Controllers
             {
                 PopulateDropDownListToSelectCategory();
 
-                _logger.LogInformation("--- extracted Categories");
+                _logger.LogInformation("--- extracted sub categories");
                 return View();
             }
 
@@ -34,7 +36,7 @@ namespace FoodRecipe.Areas.Recipe.Controllers
                 List<SelectListItem> categories = new List<SelectListItem>();
                 categories.Add(new SelectListItem
                 {
-                    Text = "----- select a category -----",
+                    Text = "----- select a sub category -----",
                     Value = "",
                     Selected = true
                 });

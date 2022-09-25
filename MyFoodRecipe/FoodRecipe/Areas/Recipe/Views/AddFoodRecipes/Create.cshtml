@@ -5,12 +5,12 @@
 }
 
 <h1>Create</h1>
-
-<h4>AddFoodRecipe</h4>
+<hr/>
+<h4>Add Food Recipe</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+<div class="row bg-info rounded">
+    <div class="col-md-10">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="FoodRecipeName" class="control-label"></label>
@@ -19,29 +19,45 @@
             </div>
             <div class="form-group">
                 <label asp-for="FoodIngredient" class="control-label"></label>
-                <input asp-for="FoodIngredient" class="form-control" />
+                <textarea asp-for="FoodIngredient" class="form-control"></textarea>
                 <span asp-validation-for="FoodIngredient" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="FoodMakingStep" class="control-label"></label>
-                <input asp-for="FoodMakingStep" class="form-control" />
+                <textarea asp-for="FoodMakingStep" class="form-control"></textarea>
                 <span asp-validation-for="FoodMakingStep" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FoodSubCategoryId" class="control-label"></label>
-                <select asp-for="FoodSubCategoryId" class ="form-control" asp-items="ViewBag.FoodSubCategoryId"></select>
+                <label asp-for="FoodSubCategoryId" class="control-label">Food Sub Category</label>
+                <select asp-for="FoodSubCategoryId" class ="form-control" asp-items="ViewBag.FoodSubCategoryId">
+                    <option value="0">Choose sub category</option>
+                </select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="Image" class="control-label"> Food Image</label>
+                <input asp-for="ImageUpload" class="form-control" />
+                <br />
+                <img src="" id="imgpreview" alt="" />
+                <span asp-validation-for="ImageUpload" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-warning" />
+                <a asp-action="Index" class="btn btn-dark">Back to List</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        CKEDITOR.replace("FoodIngredient");
+        CKEDITOR.replace("FoodMakingStep");
+
+        $("#ImageUpload").change(function(){
+            readURL(this)
+        });
+    </script>
 }

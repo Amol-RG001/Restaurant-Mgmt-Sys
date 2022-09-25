@@ -1,0 +1,17 @@
+This is my sample food recipe!
+
+Sample Ingredients
+1)__sdnls
+2)__jsndj
+3)__sjidn
+4)__dowee
+5)__uwioq
+
+Sample Recipe
+
+1)__Food is any substance consumed to provide nutritional support for an organism. 
+2)__Food is usually of plant, animal, or fungal origin, and 
+3)__Contains essential nutrients, such as carbohydrates, fats, proteins, vitamins, or minerals
+4)__Food is material consisting essentially of protein, carbohydrate, and
+5)__fat used in the body of an organism to sustain growth, repair, and
+6)__vital processes and to furnish energy.

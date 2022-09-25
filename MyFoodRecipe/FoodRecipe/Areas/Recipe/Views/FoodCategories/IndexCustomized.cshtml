@@ -1,10 +1,10 @@
-﻿@model IEnumerable<FoodRecipe.Models.FoodSubCategory>
+﻿@model IEnumerable<FoodRecipe.Models.FoodCategory>
 
 @{
     ViewData["Title"] = "IndexCustomized";
 }
 
-<h1>Food Menu</h1>
+<h1>Food Category Menu</h1>
 
 
 <div class="card-columns">
@@ -12,10 +12,10 @@
     {
         <div class="card border border-danger">
             <div class="card-header font-weight-bold">
-                @fooditem.FoodSubCategoryName
+                @fooditem.FoodCategoryName
             </div>
             <div class="card-body ">
-                @Html.DisplayNameFor(modelItem => fooditem.FoodSubCategoryName) : @fooditem.FoodSubCategoryName
+                @Html.DisplayNameFor(modelItem => fooditem.FoodCategoryName) : @fooditem.FoodCategoryName
                 @*@Html.DisplayNameFor(modelItem => fooditem.FoodCategory) : @fooditem.FoodCategoryName*@
                 <br />
              
@@ -28,4 +28,4 @@
         </div>
     }
 </div>
-<a class="btn btn-sm btn-secondary" asp-area="Recipe" asp-controller="ShowFoodSubCategories" asp-action="Index">Back to Menu</a>
+<a class="btn btn-sm btn-secondary" asp-area="Recipe" asp-controller="ShowFoodCategories" asp-action="Index">Back to Menu</a>

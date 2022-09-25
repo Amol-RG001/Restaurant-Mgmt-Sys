@@ -4,27 +4,31 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Food Sub Category</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-sm btn-success" asp-action="Create">Create New</a>
 </p>
 
  <div class="card-columns">
     @foreach (var item in Model) {
-        <div class="card border border-danger" >
-                <div class="card-header font-weight-bold">
-                    @item.FoodSubCategoryName
-                </div>
+        <div class="card" >
+                <div class="card-header font-weight-bold bg-secondary text-white">
+                <h6> Sub Category - @item.FoodSubCategoryId</h6>
+
+            </div>
                 <div class="card-body ">
-                    @*@Html.DisplayNameFor(modelItem => item.FoodSubCategoryName) : @item.FoodSubCategoryName*@
-                    <br />
-                    @Html.DisplayNameFor(modelItem => item.FoodCategory) : @item.FoodCategory.FoodCategoryName
+
+                <h5>Food Item - @item.FoodSubCategoryName</h5>
+                <br />
+                <h5>Category - @item.FoodCategory.FoodCategoryName</h5>
+               
+                 
                 </div>
-                <div class="card-footer">
-                    <a asp-action="Edit" asp-route-id="@item.FoodSubCategoryId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.FoodSubCategoryId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.FoodSubCategoryId">Delete</a>
+                <div class="card-footer bg-secondary">
+                <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.FoodSubCategoryId">Edit</a>
+                <a class="btn btn-sm btn-warning" asp-action="Details" asp-route-id="@item.FoodSubCategoryId">Details</a>
+                <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.FoodSubCategoryId">Delete</a>
                 </div>
         </div>
      }

@@ -86,23 +86,23 @@
 <div style="display:flex" class="demo-recipe">
     <figure>
         <img style="margin:12px" src="~/img/slide4.jpg" alt="slide 4 " width="250px" height="150px">
-        <h5>Banana Pancakes </h5>
-        <p>Prep: 15min | Cook : 5min</p>
+        <h5>  &nbsp;  Nan Rolls </h5>
+        <p>  &nbsp;  Prep: 15min | Cook : 5min</p>
     </figure>
     <figure>
         <img style="margin:12px" src="~/img/slide3.jpg" alt="slide 3 " width="250px" height="150px">
-        <h5>Pizza Medium </h5>
-        <p>Prep: 15min | Cook : 25min</p>
+        <h5> &nbsp; Pizza Medium </h5>
+        <p>&nbsp;  Prep: 15min | Cook : 25min</p>
     </figure>
     <figure>
         <img style="margin:12px" src="~/img/slide2.jpg" alt="slide 2" width="250px" height="150px">
-        <h5>Chiense Vegetables </h5>
-        <p>Prep: 18min | Cook : 12min</p>
+        <h5>&nbsp;  Banana Pancakes </h5>
+        <p>&nbsp; Prep: 18min | Cook : 12min</p>
     </figure>
     <figure>
         <img style="margin:12px" src="~/img/slide1.jpg" alt="slide 1" width="250px" height="150px">
-        <h5>Nan Rolls  </h5>
-        <p>Prep: 15min | Cook : 7min</p>
+        <h5>&nbsp; Non-Veg Dish </h5>
+        <p>&nbsp; Prep: 15min | Cook : 7min</p>
     </figure>
 
 </div>
@@ -124,25 +124,25 @@
         <div class="carousel-inner" style="width:50px 50px">
 
             <div class="carousel-item active">
-                <img src="~/img/slide1.jpg" alt="slide 1" width="650px" height="350px">
+                <img src="~/img/burger2.jpg" alt="burger" width="650px" height="350px">
 
             </div>
             <div class="carousel-item">
-                <img src="~/img/slide2.jpg" alt="slide 2" width="650px" height="350px">
+                <img src="~/img/cup-cake.jpg" alt="cup cake" width="650px" height="350px">
             </div>
             <div class="carousel-item">
-                <img src="~/img/slide3.jpg" alt="slide 3 " width="650px" height="350px">
+                <img src="~/img/ice-cream3.jpg" alt="sice cream " width="650px" height="350px">
             </div>
             <div class="carousel-item">
-                <img src="~/img/slide4.jpg" alt="slide 4 " width="650px" height="350px">
+                <img src="~/img/pasta.jpg" alt="pasta" width="650px" height="350px">
             </div>
         </div>
 
         <!-- Left and right controls -->
-        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <a style="background-color:#FFF9F9" class="carousel-control-prev" href="#demo" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </a>
-        <a class="carousel-control-next" href="#demo" data-slide="next">
+        <a style="background-color:#FFF9F9" class="carousel-control-next" href="#demo" data-slide="next">
             <span class="carousel-control-next-icon"></span>
         </a>
 
@@ -180,30 +180,30 @@
         <h1>Our Recipe</h1><br />
         <div class="col d-flex justify-content-center">
             <div class="card" style="width:300px">
-                <img class="card-img-top" src="~/img/cup-spoon.jpg" alt="Card image">
+                <img class="card-img-top" src="~/img/cup-spoon.jpg" alt="Veg Soup">
                 <div class="card-body">
                     <a class="btn btn-sm btn-dark" asp-area="" asp-controller="" asp-action="/Index">View Recipe</a>
-                    <h4 class="card-title">Chicken Vesuvio</h4>
+                    <h4 class="card-title">Veg Soup</h4>
                     <p class="card-text">Enjoyed the food.</p>
                 </div>
 
             </div>
 
             <div class="card" style="width:300px">
-                <img class="card-img-top" src="~/img/ice-cream.jpg" alt="Card image">
+                <img class="card-img-top" src="~/img/ice-cream.jpg" alt="Vanila Mint Ice Cream">
                 <div class="card-body">
-                    <a class="btn btn-sm btn-dark" asp-area="" asp-controller="" asp-action="/Index">View Recipe</a>
-                    <h4 class="card-title">Chicken Vesuvio</h4>
+                    <a class="btn btn-sm btn-dark" asp-area="" asp-controller="AddFoodRecipes" asp-action="/Index">View Recipe</a>
+                    <h4 class="card-title">Vanila Ice Cream</h4>
                     <p class="card-text">Enjoyed the food.</p>
                 </div>
 
             </div>
 
             <div class="card" style="width:300px">
-                <img class="card-img-top" src="~/img/for-card.jpg" alt="Card image">
+                <img class="card-img-top" src="~/img/for-card.jpg" alt="Fruits Salad">
                 <div class="card-body">
-                    <a class="btn btn-sm btn-dark" asp-area="" asp-controller="" asp-action="/Index">View Recipe</a>
-                    <h4 class="card-title">Chicken Vesuvio</h4>
+                    <a class="btn btn-sm btn-dark" asp-area="Recipe" asp-controller="AddFoodRecipes" asp-action="Index">View Recipe</a>
+                    <h4 class="card-title">Fruits Salad</h4>
                     <p class="card-text">Enjoyed the food.</p>
                 </div>
 
@@ -212,8 +212,9 @@
             <div class="card" style="width:300px">
                 <img class="card-img-top" src="~/img/burger2.jpg" alt="Card image">
                 <div class="card-body">
-                    <a class="btn btn-sm btn-dark" asp-area="" asp-controller="" asp-action="/Index">View Recipe</a>
-                    <h4 class="card-title">Chicken Vesuvio</h4>
+  
+                    <a class="btn btn-sm btn-dark" asp-area="Recipe" asp-controller="AddFoodRecipes" asp-action="IndexCustomized">View Recipe</a>
+                    <h4 class="card-title">Veg Burger</h4>
                     <p class="card-text">Enjoyed the food.</p>
                 </div>
 
@@ -272,16 +273,36 @@
                         <i class="fa-brands fa-linkedin"></i>
                     </a>
                 </div>
-                <a href="#" download class="btn btn-danger">Sample Recipe</a>
+                <a href="~/img/SampleRecipe.txt" download class="btn btn-danger">Sample Recipe</a>
             </div>
             <div class="contact-right">
-                <form action="">
-                    <input type="text" name="Name" placeholder="Your Name" required />
-                    <input type="email" name="Email" placeholder="Your Email" required />
+                <form onsubmit="sendEmail(); reset(); return false;">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required />
+                    <input type="email" id="email" name="email" placeholder="Your Email" required />
+                    <input type="text" id="mobile" name="mobile" placeholder="Your Mobile no." required />
                     <textarea name="message" id="message" rows="6" placeholder="Message For Food Hub.."></textarea>
                     <button type="submit" class="btn btn-danger">Submit</button>
                 </form>
             </div>
+            <script src="https://smtpjs.com/v3/smtp.js"></script>
+            <script>
+                function sendEmail(){
+                    Email.send({
+                        Host: "smtp.gmail.com",
+                        Username: "olittle916@gmail.com",
+                        Password: "thed@12k4",
+                        To: 'gahaneamol37@gmail.com',
+                        From: document.getElementById("email").value,
+                        Subject: "Food Recipe Contact Enquiry",
+                        Body: "Name: " + document.getElementById("name").value
+                            + "<br> Email: " + document.getElementById("email").value
+                            + "<br> Mobile no.: " + document.getElementById("mobile").value
+                            + "<br> Message: " + document.getElementById("message").value
+                    }).then(
+                        message => alert("Message Sent Succesfully!")
+                    );
+                }
+            </script>
         </div>
     </div>
 </div>

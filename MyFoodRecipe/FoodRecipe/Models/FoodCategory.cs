@@ -9,6 +9,8 @@ namespace FoodRecipe.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
+        [Required(ErrorMessage = "{0} cannot be empty.")]
         public int FoodCategoryId { get; set; }
 
         [Display(Name ="Food Category")]

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FoodRecipe.Models
@@ -8,24 +9,28 @@ namespace FoodRecipe.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+         public int FoodRecipeId { get; set; }
 
-        public int FoodRecipeId { get; set; }
 
         [Display(Name ="Recipe Name")]
-        [Required(ErrorMessage ="{0} cannot be empty.")]
-        [StringLength(50, ErrorMessage = "{0} cannot have more than {1} characters.")]
-        public string FoodRecipeName { get; set; }
+        [Required, MinLength(2, ErrorMessage="Minimum length is 2")]
+         public string FoodRecipeName { get; set; }
+
 
         [Display(Name ="Ingredients")]
-        [Required(ErrorMessage ="{0} cannot be empty.")]
-        [StringLength(250, ErrorMessage = "{0} cannot have more than {1} characters.")]
-        public string FoodIngredient { get; set; }
+        [Required, MinLength(2, ErrorMessage = "Minimum length is 2")]
+         public string FoodIngredient { get; set; }
 
 
         [Display(Name = "How to make it?")]
-        [Required(ErrorMessage = "{0} cannot be empty.")]
-        [StringLength(350, ErrorMessage = "{0} cannot have more than {1} characters.")]
+        [Required,MinLength(2, ErrorMessage = "Minimum length is 2")]
+        //[StringLength(350, ErrorMessage = "{0} cannot have more than {1} characters.")]
         public string FoodMakingStep { get; set; }
+
+        public string Image { get; set; } //adding new functionality
+
+        [NotMapped]
+        public IFormFile ImageUpload { get; set; }
 
         /* #region Navigation Properties to the Master Model - FoodCategory
          [Required]

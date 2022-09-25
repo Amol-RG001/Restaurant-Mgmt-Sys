@@ -30,7 +30,7 @@
             <div class="container">
 
                 <a class="navbar-brand" style="color:antiquewhite" asp-area="" asp-page="/Index"> <img src="~/img/food-logo.png" width="58px" />Food Recipe Hub</a>
-
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -54,25 +54,30 @@
                             </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item"
-                                   asp-area="" asp-controller="" asp-action="/Index">By Name</a>
+                                   asp-area="Recipe" asp-controller="ShowFoodCategories" asp-action="Index">By Category</a>
                                 <a class="dropdown-item"
                                    asp-area="Recipe" asp-controller="ShowFoodSubCategories" asp-action="Index">By Sub Category</a>
                             </div>
                         </li>
 
 
+                        <!--Recipe dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#">
+                                Recipe
+                            </a>
 
-
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="Recipe" asp-controller="AddFoodRecipes" asp-action="IndexCustomized">Recipes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-page="/Index">User Recipes</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item"
+                                   asp-area="Recipe" asp-controller="ShowRecipes" asp-action="Index">Show Recipes</a>
+                            </div>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="~/feedback.html">Feedback</a>
-                        </li>
+                       @* <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="Recipe" asp-controller="ShowRecipes" asp-action="Index">Recipes</a>
+                        </li>*@
+                            <!--end of recipe dropdown -->
+
                         <li class="nav-item">
                             <a href="#contact" class="nav-link text-light">Contact</a>
                         </li>
@@ -85,16 +90,19 @@
                             </a>
                             <div class="dropdown-menu">
 
-        @if(isLoggeedIn){
-            @if(isUserAdmin){ //only and only Admin can access it
+                        @if(isLoggeedIn)
+                        {
+                             //only and only Admin can access it
+                            @if(isUserAdmin)
+                            { 
                                 <a class="dropdown-item"
                                    asp-area="Recipe" asp-controller="FoodCategories" asp-action="Index">Add Category</a>
             
                                    <a class="dropdown-item"
                                    asp-area="Recipe" asp-controller="FoodSubCategories" asp-action="Index">Add Sub Category</a>
-            }                
+                            }                
                                    
-        }      
+                        }      
                                    <a class="dropdown-item"
                                    asp-area="Recipe" asp-controller="AddFoodRecipes" asp-action="Index">Add Food Recipe</a>
 
@@ -123,7 +131,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
+    <script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 

@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace FoodRecipe.Areas.Recipe.Controllers
 {
     [Area("Recipe")]
-    [Authorize(Roles = "RecipeAdmin")]
+    [Authorize]
     public class FoodCategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -26,6 +26,14 @@ namespace FoodRecipe.Areas.Recipe.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.FoodCategory.ToListAsync());
+        }
+        public async Task<IActionResult> GetFoodsOfCategory(int filterFoodCategoryId )
+        {
+            var viewmodel = await _context.FoodCategory
+                                          .Where(b => b.FoodCategoryId == filterFoodCategoryId) 
+                                          .ToListAsync();
+
+            return View(viewName: "IndexCustomized", model: viewmodel);
         }
 
         // GET: Recipe/FoodCategories/Details/5

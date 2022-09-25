@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace FoodRecipe.Areas.Recipe.Controllers
 {
     [Area("Recipe")]
-    [Authorize(Roles = "RecipeAdmin")]
+    [Authorize] //[Authorize(Roles = "RecipeAdmin")]
     public class FoodSubCategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;

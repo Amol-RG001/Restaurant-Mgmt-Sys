@@ -4,18 +4,19 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Food Category</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-sm btn-success" asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table table-bordered table-striped table-hover">
     <thead>
-        <tr>
+        <tr class="bg-dark text-white">
             <th>
                 @Html.DisplayNameFor(model => model.FoodCategoryName)
             </th>
-            <th></th>
+           
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -23,11 +24,12 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.FoodCategoryName)
+                    
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.FoodCategoryId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FoodCategoryId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FoodCategoryId">Delete</a>
+                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.FoodCategoryId">Edit</a> 
+                    <a class="btn btn-sm btn-warning" asp-action="Details" asp-route-id="@item.FoodCategoryId">Details</a> 
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.FoodCategoryId">Delete</a>
             </td>
         </tr>
 }
