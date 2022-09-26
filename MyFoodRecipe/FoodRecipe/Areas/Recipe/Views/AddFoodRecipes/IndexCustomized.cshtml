@@ -14,27 +14,28 @@
             
             <div class="card-header font-weight-bold text-center">
                 <h5 class="text-white"> Food Recipe - @fooditem.FoodRecipeId</h5>
-                
             </div>
+
             <div class="card-body bg-light">
                 <strong style="color:cadetblue"> @Html.DisplayNameFor(modelItem => fooditem.FoodRecipeName) : </strong>@fooditem.FoodRecipeName
                 <br/>
                 <hr/>
                 <strong style="color:cadetblue">
                     @Html.DisplayNameFor(modelItem => fooditem.FoodIngredient) :
-                </strong> <br /> @fooditem.FoodIngredient
+                </strong> <br /> @Html.Raw(fooditem.FoodIngredient)
                 <br />
                 <hr/>
                     <strong style="color:cadetblue">
                     @Html.DisplayNameFor(modelItem => fooditem.FoodMakingStep) :
-                </strong> <br />@fooditem.FoodMakingStep
+                </strong> <br />@Html.Raw(fooditem.FoodMakingStep)
                 <br />
 
             </div>
+
             <div class="card-footer bg-info">
-        
+        @*
                 <a class="btn text-white" asp-area="Recipe" asp-controller="AddFoodRecipes" asp-action="Details" asp-route-id="@fooditem.FoodRecipeId">Details</a>
-      
+      *@
             </div>
         </div>
     }

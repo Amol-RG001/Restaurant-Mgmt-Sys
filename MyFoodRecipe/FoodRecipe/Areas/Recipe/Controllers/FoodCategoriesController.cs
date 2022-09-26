@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using FoodRecipe.Data;
 using FoodRecipe.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
 
 namespace FoodRecipe.Areas.Recipe.Controllers
 {
@@ -16,10 +17,11 @@ namespace FoodRecipe.Areas.Recipe.Controllers
     public class FoodCategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public FoodCategoriesController(ApplicationDbContext context)
+        private readonly ILogger<FoodCategoriesController> _logger;
+        public FoodCategoriesController(ApplicationDbContext context, ILogger<FoodCategoriesController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: Recipe/FoodCategories
@@ -67,12 +69,29 @@ namespace FoodRecipe.Areas.Recipe.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FoodCategoryId,FoodCategoryName")] FoodCategory foodCategory)
         {
+            //if (ModelState.IsValid)
+            //{
+            //    _context.Add(foodCategory);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
+            // Sanitize the data
+            foodCategory.FoodCategoryName = foodCategory.FoodCategoryName.Trim();
+
+            // Validation Checks - Server-side validation
+            bool duplicateExists = _context.FoodCategory.Any(c => c.FoodCategoryName == foodCategory.FoodCategoryName);
+            if (duplicateExists)
+            {
+                ModelState.AddModelError("FoodCategoryName", "Duplicate Category Found!");
+            }
             if (ModelState.IsValid)
             {
-                _context.Add(foodCategory);
+                _context.FoodCategory.Add(foodCategory);
                 await _context.SaveChangesAsync();
+                _logger.LogInformation($"Created a New Category: ID = {foodCategory.FoodCategoryId} !");
                 return RedirectToAction(nameof(Index));
             }
+
             return View(foodCategory);
         }
 
