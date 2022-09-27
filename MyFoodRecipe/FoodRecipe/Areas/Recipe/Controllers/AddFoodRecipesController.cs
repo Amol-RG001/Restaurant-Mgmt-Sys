@@ -77,21 +77,7 @@ namespace FoodRecipe.Areas.Recipe.Controllers
         {
             if (ModelState.IsValid)
             {
-              
-
-                ////my code
-                //string imageName = "burger.jpg";
-                //if(addFoodRecipe != null)
-                //{
-                //    string uploadDir = Path.Combine(webHostEnvironment.WebRootPath, "media/images");
-                //    imageName = Guid.NewGuid().ToString() + "_" + addFoodRecipe.ImageUpload.FileName;
-                //    string filePath = Path.Combine(uploadDir, imageName);
-                //    FileStream fs = new FileStream(filePath, FileMode.Create);  
-                //    await addFoodRecipe.ImageUpload.CopyToAsync(fs);
-                //    fs.Close();
-                //}
-                //addFoodRecipe.Image = imageName;
-
+             
                 _context.Add(addFoodRecipe);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

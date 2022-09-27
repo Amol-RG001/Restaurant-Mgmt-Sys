@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>My FoodHub API </title>
+    <title>My FoodHub API-1 </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -22,7 +22,7 @@
                     <th class="col-2">Food Category ID</th>
                     <th class="col-8">Food Category Name</th>
                     <th class="col-2 text-center">
-                        <button class="btn btn-sm btn-secondary" onclick="fAddNew()">Add new</button>
+                        <button class="btn btn-sm btn-success"  onclick="fAddNew()">Add new</button>
                     </th>
                 </tr>
             </thead>
@@ -30,7 +30,7 @@
             </tbody>
         </table>
 
-        <p><a href="/">Back to home page</a></p>
+        <p><a href="/" class="btn btn-dark">Back to home page</a></p>
     </div>
 
 
@@ -199,9 +199,9 @@
                     + '<td>' + elem.foodCategoryId + '</td>'
                     + '<td>' + elem.foodCategoryName + '</td>'
                     + '<td class="text-center">'
-                    + '<button type="button" class="btn btn-secondary btn-sm" onclick="fEdit(' + elem.foodCategoryId + ')">Edit</button>'
+                    + '<button type="button" class="btn btn-primary btn-sm" onclick="fEdit(' + elem.foodCategoryId + ')">Edit</button>'
                     + '&nbsp;'
-                    + '<button type="button" class="btn btn-secondary btn-sm" onclick="fDelete('+ elem.foodCategoryId +')">Delete</button>'
+                    + '<button type="button" class="btn btn-danger btn-sm" onclick="fDelete('+ elem.foodCategoryId +')">Delete</button>'
                     + '</td>'
                     + '</tr>';
             });

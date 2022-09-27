@@ -3,7 +3,8 @@
 
 // Write your Javascript code.
 
-function readURL(input) {
+//code for preview image
+/*function readURL(input) {
     if (input.files && input.files[0]) {
         let reader = new FileReader();
 
@@ -13,4 +14,4 @@ function readURL(input) {
         };
         reader.readAsDataURL(input.files[0]);
     }
-}
+}*/

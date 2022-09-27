@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FoodRecipe.Data;
 using FoodRecipe.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FoodRecipe.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class FoodCategoriesController : ControllerBase
     {
         private readonly ApplicationDbContext _context;

@@ -13,9 +13,7 @@
 <table class="table table-striped table-hover table-bordered">
     <thead>
         <tr class="table-info"> 
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.FoodRecipeName)
             </th>
@@ -37,18 +35,15 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <th>
-                @Html.DisplayFor(modelItem => item.Image)
-                <img src="~/img/" width="100">
-            </th>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.FoodRecipeName)
             </td>
             <td>
-                    @Html.Raw(item.FoodIngredient) @*@Html.DisplayFor(modelItem => item.FoodIngredient)*@
+                    @Html.Raw(item.FoodIngredient)
             </td>
             <td>
-                    @Html.Raw(item.FoodMakingStep) @*@Html.DisplayFor(modelItem => item.FoodMakingStep)*@
+                    @Html.Raw(item.FoodMakingStep) 
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FoodSubCategory.FoodSubCategoryName)
