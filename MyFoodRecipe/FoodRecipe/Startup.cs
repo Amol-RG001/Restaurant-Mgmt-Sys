@@ -13,7 +13,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi.Models;
 
+//Add the assembly attribute to ensure that Swagger grnerated the complete API Doc.
+[assembly:ApiConventionType(typeof(DefaultApiConventions))]
 namespace FoodRecipe
 {
     public class Startup
@@ -68,6 +72,22 @@ namespace FoodRecipe
             //Register the EmailSender Service fo Dependency Injection
             services
                 .AddSingleton<IEmailSender, MyEmailSenderService>();
+
+            //Register the MVC Middleware - needed for swagger documentation middle service
+            services
+              .AddMvc();
+
+            //Register the swagger generation middleware service
+            services
+             .AddSwaggerGen(config =>
+             {
+                 config.SwaggerDoc("v1", new OpenApiInfo
+                 {
+                     Version = "v1",
+                     Title = " My Food Recipe",
+                     Description = "Food Recipe Hub - API Version 1.0"
+                 });
+             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -84,6 +104,13 @@ namespace FoodRecipe
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+            // Add the Swagger Documentation Generation Middleware
+            app.UseSwaggerUI(config =>
+            {
+                config.SwaggerEndpoint("/swagger/v1/swagger.json", "FoodRecipe Web API v1.0");
+            });
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
