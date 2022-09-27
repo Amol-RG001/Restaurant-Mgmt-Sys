@@ -19,5 +19,9 @@ namespace FoodRecipe.Data
 
         public DbSet<FoodRecipe.Models.AddFoodRecipe> AddFoodRecipe { get; set; }
 
+        public DbSet<FoodRecipe.Models.FoodEvent> FoodEvent { get; set; }
+
+        public DbSet<FoodRecipe.Models.RegistrationForm> ResgistrationForm { get; set; }
+
     }
 }

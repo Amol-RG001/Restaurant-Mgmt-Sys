@@ -1,0 +1,77 @@
+﻿@using FoodRecipe.Models.Enums
+@using Microsoft.AspNetCore.Identity
+@model IEnumerable<FoodRecipe.Models.FoodEvent>
+@inject SignInManager<IdentityUser> _signInManager
+@inject UserManager<IdentityUser> _userManager
+@{
+    bool isLoggeedIn = _signInManager.IsSignedIn(this.User);
+    bool isUserAdmin = false;
+    IdentityUser user = await _userManager.GetUserAsync(this.User);
+
+    if (user != null)
+    {
+        isUserAdmin = await _userManager.IsInRoleAsync(user, MyIdentityRoleNames.RecipeAdmin.ToString());
+    }
+
+    ViewData["Title"] = "Index";
+}
+<head>
+    <!--fontawsome script for icons-->
+    <script src="https://kit.fontawesome.com/c65c3f2840.js"
+            crossorigin="anonymous">
+    </script>
+</head>
+
+<h1 class="text-center text-warning">Upcoming Event Board!</h1>
+<br />
+<p>
+    @if(isUserAdmin){
+        <a class="btn  btn-success" asp-action="Create">Create New</a>
+    }
+    
+</p>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th class ="text-center">
+                @Html.DisplayNameFor(model => model.EventName)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.EventDateTime)
+            </th>
+            <th class="text-center"> Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </td>
+            <td>
+                @Html.Raw(item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDateTime)
+            </td>
+            <td>
+                    @if (isLoggeedIn)
+                    {
+                        <a class="btn  btn-danger " asp-controller="RegistrationForms" asp-action="Create" asp-route-id="@item.EventNo"> <i class="fa-brands fa-meetup"></i> </a>
+                        <a class="btn  btn-warning " asp-action="Details" asp-route-id="@item.EventNo"> <i class="fa-sharp fa-solid fa-circle-info"></i> </a>
+                        @if (isUserAdmin)
+                        {
+                            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.EventNo"> <i class="fa-solid fa-pen-to-square"></i> </a>
+
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.EventNo"> <i class="fa-solid fa-trash"></i> </a>
+                        }
+                    }
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

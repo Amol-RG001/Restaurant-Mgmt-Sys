@@ -1,0 +1,81 @@
+﻿@using FoodRecipe.Models.Enums
+@using Microsoft.AspNetCore.Identity
+@model IEnumerable<FoodRecipe.Models.RegistrationForm>
+
+@inject SignInManager<IdentityUser> _signInManager
+@inject UserManager<IdentityUser> _userManager
+@{
+    bool isLoggeedIn = _signInManager.IsSignedIn(this.User);
+    bool isUserAdmin = false;
+    IdentityUser user = await _userManager.GetUserAsync(this.User);
+
+    if (user != null)
+    {
+        isUserAdmin = await _userManager.IsInRoleAsync(user, MyIdentityRoleNames.RecipeAdmin.ToString());
+    }
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-danger text-center">Participators Board</h1>
+
+<p>
+    @if (isUserAdmin)
+    {
+        <a class="btn btn-sm btn-success" asp-action="Create">Create New</a>
+    }
+   
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ParticipantName)
+            </th>
+
+            @if (isUserAdmin){
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumer)
+                </th>
+            }
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr class="text-danger">
+            <td>
+                @Html.DisplayFor(modelItem => item.ParticipantName)
+            </td>
+                @if (isUserAdmin)
+                {
+                    <td>
+                         @Html.DisplayFor(modelItem => item.PhoneNumer)
+                    </td>
+                }
+                <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                    @if (isUserAdmin)
+                    {
+
+
+                        <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.ParticipantId">Edit</a>
+                        <a class ="btn btn-sm btn-warning" asp-action="Details" asp-route-id="@item.ParticipantId">Details</a>
+                        <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.ParticipantId">Delete</a>
+                    }
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

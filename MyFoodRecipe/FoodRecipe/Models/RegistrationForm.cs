@@ -1,0 +1,39 @@
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
+
+namespace FoodRecipe.Models
+{
+    [Table("EventRegistrationForm")]
+    public class RegistrationForm
+    {
+        [Key]                                                               
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ParticipantId { get; set; }
+
+
+        [Display(Name = "Participant Full Name")]
+        [Required(ErrorMessage = "{0} cannot be empty.")]
+        [StringLength(60, ErrorMessage = "{0} cannot have more than {1} characters.")]
+        [RegularExpression(@"^[A-Za-z]+[\s][A-Za-z]+$", ErrorMessage = "Use only characters!")]
+        public string ParticipantName { get; set; }
+
+
+        [Display(Name = "Phone Number")]
+        [Required(ErrorMessage = "{0} cannot be empty.")]
+        [RegularExpression(@"^[0-9]{10}$", ErrorMessage = "Enter only 10 digits")]
+        public string PhoneNumer { get; set; }
+
+
+        [EmailAddress(ErrorMessage = "{0} is not valid.")]
+        public string Email { get; set; }
+
+
+        [Required(ErrorMessage = "{0} cannot be empty")]
+        [StringLength(60, ErrorMessage = "{0} cannot have more than {1} characters.")]
+        public string Address { get; set; }
+
+
+
+    }
+}
