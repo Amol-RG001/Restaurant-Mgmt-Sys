@@ -83,7 +83,7 @@
 </div>
 <!--Marque tag for event -->
 <marquee width="100%" direction="left" height="25px">
-    <a class=" text-decoration-none text-danger bg-light rounded" asp-area="Recipe" asp-controller="FoodEvents" asp-action="Index"> &nbsp;&nbsp; &hArr;&hArr;&hArr; Check Upcoming Event! &hArr;&hArr;&hArr; &nbsp;&nbsp;</a>
+    <a class=" text-decoration-none text-warning bg-light rounded" asp-area="Recipe" asp-controller="FoodEvents" asp-action="Index"> &nbsp;&nbsp;  Check Upcoming Event!  &nbsp;&nbsp;</a>
 </marquee>
 
 <!--single recipe-->
@@ -112,8 +112,11 @@
 </div>
 <br />
 <div class="text-center">
+    <!--check event btn-->
+    <a class="btn btn-sm btn-danger float-right rounded-circle py-3 shadow-lg p-3 mb-5  rounded" asp-area="Recipe" asp-controller="FoodEvents" asp-action="Index">Check Event!</a>
 
-    <h1>Popular Dishesh! </h1><br />
+    <h1>Popular Dishesh!</h1>
+    <br />
     <div id="demo" class="carousel slide" data-ride="carousel">
 
         <!-- Indicators -->

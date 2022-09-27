@@ -29,14 +29,17 @@
                 @Html.DisplayNameFor(model => model.FoodSubCategory)
             </th>
             
-            <th></th>
+            <th>
+                Action
+            </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <th>
-                @Html.DisplayNameFor(modelItem => item.Image)
+                @Html.DisplayFor(modelItem => item.Image)
+                <img src="~/img/" width="100">
             </th>
             <td>
                 @Html.DisplayFor(modelItem => item.FoodRecipeName)
@@ -54,7 +57,6 @@
             <td>
                     <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.FoodRecipeId">Edit</a> 
                     <a class="btn btn-sm btn-warning"  asp-action="Details" asp-route-id="@item.FoodRecipeId">Details</a> 
-
                     <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.FoodRecipeId">Delete</a>
             </td>
         </tr>
