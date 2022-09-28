@@ -10,7 +10,7 @@ namespace FoodRecipe.xUnitTestProject
         public void Test1()
         {
             // ARRANGE
-            int a = 1, b=30;
+            int a = 1, b=3;
             int expectedR = 4;
             int actualR;
             // ACT
