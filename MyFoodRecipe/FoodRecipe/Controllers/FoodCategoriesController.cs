@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using FoodRecipe.Data;
 using FoodRecipe.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
 
 namespace FoodRecipe.Controllers
 {
@@ -17,17 +18,40 @@ namespace FoodRecipe.Controllers
     public class FoodCategoriesController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<FoodCategoriesController> _logger; 
 
-        public FoodCategoriesController(ApplicationDbContext context)
+        public FoodCategoriesController(ApplicationDbContext context, 
+            ILogger<FoodCategoriesController> logger)
         {
             _context = context;
+            _logger = logger;   
         }
 
         // GET: api/FoodCategories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<FoodCategory>>> GetFoodCategory()
+        //public async Task<ActionResult<IEnumerable<FoodCategory>>> GetFoodCategory()
+        public async Task<ActionResult> GetFoodCategories()
         {
-            return await _context.FoodCategory.ToListAsync();
+            try
+            {
+
+                var foodCategories = await _context.FoodCategory.ToListAsync();
+
+                //check if data exists in the DB
+                if (foodCategories == null)
+                {
+                    //No data Found - HTTP 404
+                    return NotFound();
+                }
+                // RETURN: OkObjectResult - HTTP 200
+                return Ok(foodCategories);
+            }
+            catch(Exception e)
+            {
+                // RETURN: BadResult - HTTP 400
+                return BadRequest(e.Message);
+            }
+           
         }
 
         // GET: api/FoodCategories/5
