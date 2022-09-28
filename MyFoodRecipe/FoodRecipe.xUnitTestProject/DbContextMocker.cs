@@ -42,19 +42,19 @@ namespace FoodRecipe.xUnitTestProject
                 new FoodCategory
                 {
                     FoodCategoryId = 1,
-                    FoodCategoryName = "First Category"
+                    FoodCategoryName = "Punjabi Thali"
                 },
 
                  new FoodCategory
                 {
                     FoodCategoryId = 2,
-                    FoodCategoryName = "Second Category"
+                    FoodCategoryName = "Gujarati Thali"
                 },
 
                   new FoodCategory
                 {
                     FoodCategoryId = 3,
-                    FoodCategoryName = "Third Category"
+                    FoodCategoryName = "Maharashtrian Thali"
                 },
 
         };
