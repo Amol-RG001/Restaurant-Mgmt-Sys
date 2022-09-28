@@ -9,10 +9,7 @@ namespace FoodRecipe.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
-
         public int EventNo { get; set; }
-
         [Display(Name="Event Name")]
         [Required (ErrorMessage = "{0} must be required!")]
         [StringLength (60, ErrorMessage = "{0} cannot have more than {1} characters")]
@@ -21,6 +18,7 @@ namespace FoodRecipe.Models
 
         [Required, MinLength(5,ErrorMessage ="{0} is must for event details")]
         public string Description { get; set; }
+
 
         [Display(Name = "Date & Time")]
         [Required(ErrorMessage="{0} cannot be empty!")]

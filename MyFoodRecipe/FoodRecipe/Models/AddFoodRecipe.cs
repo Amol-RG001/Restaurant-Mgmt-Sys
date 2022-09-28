@@ -27,17 +27,13 @@ namespace FoodRecipe.Models
         //[StringLength(350, ErrorMessage = "{0} cannot have more than {1} characters.")]
         public string FoodMakingStep { get; set; }
 
-        public string Image { get; set; } //adding new functionality
+        /* Not Used in v.1 code */
+        //public string Image { get; set; } //adding new functionality
 
-        [NotMapped]
-        public IFormFile ImageUpload { get; set; }
+        //[NotMapped]
+        //public IFormFile ImageUpload { get; set; }
 
-        /* #region Navigation Properties to the Master Model - FoodCategory
-         [Required]
-         public int FoodCategoryId { get; set; }
-         [ForeignKey(nameof(AddFoodRecipe.FoodCategoryId))]
-         public FoodCategory FoodCategory { get; set; }
-         #endregion*/
+       
 
         #region Navigation Properties to the Master Model - FoodSubCategory
         [Required]

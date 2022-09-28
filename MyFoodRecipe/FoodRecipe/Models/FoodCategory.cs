@@ -9,14 +9,15 @@ namespace FoodRecipe.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         [Required(ErrorMessage = "{0} cannot be empty.")]
-        public int FoodCategoryId { get; set; } //FoodCategoryId
+        public int FoodCategoryId { get; set; } 
+
 
         [Display(Name ="Food Category")]
         [Required(ErrorMessage ="{0} cannot be empty.")]
         [StringLength (50, ErrorMessage = "{0} cannot have more than {1} characters.")]
         public string FoodCategoryName { get; set; }
+
 
         #region Navigation Properties to the Transcation model - FoodSubCategory
         
@@ -24,10 +25,7 @@ namespace FoodRecipe.Models
 
         #endregion
 
-       /* #region Navigation Properties to the Transcation model - AddFoodRecipe
-        public ICollection<AddFoodRecipe> AddFoodRecipes { get; set; }
-
-        #endregion*/
+       
 
     }
 }
