@@ -33,13 +33,7 @@
                     <option value="0">Choose sub category</option>
                 </select>
             </div>
-            @*<div class="form-group">
-                <label asp-for="Image" class="control-label"> Food Image</label>
-                <input asp-for="ImageUpload" class="form-control" src="~/img/"/>
-                <br />
-                <img src="" id="imgpreview" alt="" />
-                <span asp-validation-for="ImageUpload" class="text-danger"></span>
-            </div>*@
+           
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-warning" />
                 <a asp-action="Index" class="btn btn-dark">Back to List</a>
@@ -55,9 +49,5 @@
     <script>
         CKEDITOR.replace("FoodIngredient");
         CKEDITOR.replace("FoodMakingStep");
-
-        //$("#ImageUpload").change(function(){
-        //    readURL(this)
-        //});
     </script>
 }

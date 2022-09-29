@@ -69,12 +69,7 @@ namespace FoodRecipe.Areas.Recipe.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FoodCategoryId,FoodCategoryName")] FoodCategory foodCategory)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    _context.Add(foodCategory);
-            //    await _context.SaveChangesAsync();
-            //    return RedirectToAction(nameof(Index));
-            //}
+           
             // Sanitize the data
             foodCategory.FoodCategoryName = foodCategory.FoodCategoryName.Trim();
 

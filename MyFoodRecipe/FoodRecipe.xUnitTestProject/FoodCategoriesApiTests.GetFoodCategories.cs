@@ -83,7 +83,7 @@ namespace FoodRecipe.xUnitTestProject
                 Assert.Equal(expected: foodCategory.FoodCategoryName,
                                 actual: foodCategoriesFrmAPI[ndx].FoodCategoryName);
 
-                _testoutputHelper.WriteLine($"Compared Row # {ndx} Successfully");
+                _testOutputHelper.WriteLine($"Compared Row # {ndx} Successfully");
                 ndx++;
             }
 

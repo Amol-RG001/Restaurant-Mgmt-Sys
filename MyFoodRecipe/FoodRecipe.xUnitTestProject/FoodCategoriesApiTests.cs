@@ -7,11 +7,11 @@ namespace FoodRecipe.xUnitTestProject
 {
     public partial class FoodCategoriesApiTests
     {
-        private readonly ITestOutputHelper _testoutputHelper;
+        private readonly ITestOutputHelper _testOutputHelper;
 
         public FoodCategoriesApiTests(ITestOutputHelper testoutputHelper)
         {
-            _testoutputHelper = testoutputHelper;
+            _testOutputHelper = testoutputHelper;
         }
     }
 }

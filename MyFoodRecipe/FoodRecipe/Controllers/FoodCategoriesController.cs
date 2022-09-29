@@ -56,16 +56,28 @@ namespace FoodRecipe.Controllers
 
         // GET: api/FoodCategories/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<FoodCategory>> GetFoodCategory(int id)
+        public async Task<ActionResult> GetFoodCategory(int? id)
         {
-            var foodCategory = await _context.FoodCategory.FindAsync(id);
-
-            if (foodCategory == null)
+            if (!id.HasValue)
             {
-                return NotFound();
+                return BadRequest();
             }
 
-            return foodCategory;
+            try
+            {
+                var foodCategory = await _context.FoodCategory.FindAsync(id);
+
+                if (foodCategory == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(foodCategory); // return Ok status code 200
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         // PUT: api/FoodCategories/5
@@ -103,29 +115,70 @@ namespace FoodRecipe.Controllers
         // POST: api/FoodCategories
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost]
-        public async Task<ActionResult<FoodCategory>> PostFoodCategory(FoodCategory foodCategory)
-        {
-            _context.FoodCategory.Add(foodCategory);
-            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetFoodCategory", new { id = foodCategory.FoodCategoryId }, foodCategory);
+        [HttpPost]
+        public async Task<IActionResult> PostFoodCategory(FoodCategory category)
+        {
+            // Sanitize the Data
+            category.FoodCategoryName = category.FoodCategoryName.Trim();
+
+            // Server Side Validation
+            bool isDuplicateFound = _context.FoodCategory.Any(c => c.FoodCategoryName == category.FoodCategoryName);
+            if (isDuplicateFound)
+            {
+                ModelState.AddModelError("POST", "Duplicate Category Found!");
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.FoodCategory.Add(category);
+                    await _context.SaveChangesAsync();
+
+                    // return CreatedAtAction("GetCategory", new { id = category.CategoryId }, category);
+
+                    // To enforce that the HTTP RESPONSE CODE 201 "CREATED", package the response.
+                    var result = CreatedAtAction("GetFoodCategory", new { id = category.FoodCategoryId }, category);
+                    return Ok(result);
+                }
+                catch (System.Exception exp)
+                {
+                    ModelState.AddModelError("POST", exp.Message);
+                }
+            }
+
+            return BadRequest(ModelState);
         }
+
 
         // DELETE: api/FoodCategories/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<FoodCategory>> DeleteFoodCategory(int id)
+        public async Task<ActionResult> DeleteFoodCategory(int?id)
         {
-            var foodCategory = await _context.FoodCategory.FindAsync(id);
-            if (foodCategory == null)
+            if (!id.HasValue)
             {
-                return NotFound();
+                return BadRequest();
             }
 
-            _context.FoodCategory.Remove(foodCategory);
-            await _context.SaveChangesAsync();
+            try
+            {
+                var foodCategory = await _context.FoodCategory.FindAsync(id);
+                if (foodCategory == null)
+                {
+                    return NotFound();
+                }
 
-            return foodCategory;
+                _context.FoodCategory.Remove(foodCategory);
+                await _context.SaveChangesAsync();
+
+                return Ok(foodCategory);
+            }
+            catch(Exception e)
+            {
+                ModelState.AddModelError("DELETE", e.Message);
+                return BadRequest(ModelState);
+            }
         }
 
         private bool FoodCategoryExists(int id)
