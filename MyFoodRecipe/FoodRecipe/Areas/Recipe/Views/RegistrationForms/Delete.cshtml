@@ -11,35 +11,45 @@
     <h4>Registration Form</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ParticipantName)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ParticipantName)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PhoneNumer)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PhoneNumer)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Email)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Email)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Address)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Address)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EventName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EventName)
+        </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="ParticipantId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> 
-        <a class="btn btn-dark"asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a class="btn btn-dark" asp-action="Index">Back to List</a>
     </form>
 </div>
+
+
+
+

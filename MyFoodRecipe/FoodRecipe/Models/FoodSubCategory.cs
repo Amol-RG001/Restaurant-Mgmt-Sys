@@ -14,6 +14,7 @@ namespace FoodRecipe.Models
             [Required(ErrorMessage = "You must choose sub Category")]
             public int FoodSubCategoryId { get; set; }
 
+
             [Display(Name = "Sub Category")]
             [Required(ErrorMessage = "{0} cannot be empty.")]
             [StringLength(50, ErrorMessage = "{0} cannot have more than {1} characters.")]
@@ -29,6 +30,7 @@ namespace FoodRecipe.Models
         public FoodCategory FoodCategory { get; set; }
         
         #endregion
+
 
         #region Navigation Properties to the Transcation model - AddFoodRecipe
         public ICollection<AddFoodRecipe> AddFoodRecipes { get; set; }

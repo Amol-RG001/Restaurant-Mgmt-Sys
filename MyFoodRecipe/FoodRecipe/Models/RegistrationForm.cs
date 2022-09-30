@@ -4,15 +4,19 @@ using System.Xml.Linq;
 
 namespace FoodRecipe.Models
 {
+    /// <summary>
+    /// EventRegistrationForm - form is used  to Registered the user to the event and stored record
+    /// </summary>
     [Table("EventRegistrationForm")]
     public class RegistrationForm
     {
         [Key]                                                               
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "Sr.No")] // ParticipantId
         public int ParticipantId { get; set; }
 
 
-        [Display(Name = "Participant Full Name")]
+        [Display(Name = "Participant Name")]
         [Required(ErrorMessage = "{0} cannot be empty.")]
         [StringLength(60, ErrorMessage = "{0} cannot have more than {1} characters.")]
         [RegularExpression(@"^[A-Za-z]+[\s][A-Za-z]+$", ErrorMessage = "Use only characters!")]
@@ -33,7 +37,15 @@ namespace FoodRecipe.Models
         [StringLength(60, ErrorMessage = "{0} cannot have more than {1} characters.")]
         public string Address { get; set; }
 
+        #region Navigation Properties to the Master Model - FoodEvent
 
+        [Display(Name = "Event Name")]
+        [Required(ErrorMessage = "{0} must be required!")]
+        [StringLength(60, ErrorMessage = "{0} cannot have more than {1} characters")]
+        [ForeignKey(nameof(RegistrationForm.EventName))]
+        public string EventName { get; set; }
+
+        #endregion
 
     }
 }

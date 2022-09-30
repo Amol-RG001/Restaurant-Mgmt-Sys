@@ -56,6 +56,9 @@ namespace FoodRecipe.Controllers
 
         // GET: api/FoodCategories/5
         [HttpGet("{id}")]
+        
+        
+
         public async Task<ActionResult> GetFoodCategory(int? id)
         {
             if (!id.HasValue)
@@ -83,6 +86,14 @@ namespace FoodRecipe.Controllers
         // PUT: api/FoodCategories/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="foodCategory"></param>
+        /// <returns></returns>
+        
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFoodCategory(int id, FoodCategory foodCategory)
         {
@@ -115,7 +126,12 @@ namespace FoodRecipe.Controllers
         // POST: api/FoodCategories
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="category"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> PostFoodCategory(FoodCategory category)
         {

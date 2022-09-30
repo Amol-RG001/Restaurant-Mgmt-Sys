@@ -55,7 +55,7 @@ namespace FoodRecipe.Areas.Recipe.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ParticipantId,ParticipantName,PhoneNumer,Email,Address")] RegistrationForm registrationForm)
+        public async Task<IActionResult> Create([Bind("ParticipantId,ParticipantName,PhoneNumer,Email,Address,EventName")] RegistrationForm registrationForm)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace FoodRecipe.Areas.Recipe.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ParticipantId,ParticipantName,PhoneNumer,Email,Address")] RegistrationForm registrationForm)
+        public async Task<IActionResult> Edit(int id, [Bind("ParticipantId,ParticipantName,PhoneNumer,Email,Address,EventName")] RegistrationForm registrationForm)
         {
             if (id != registrationForm.ParticipantId)
             {

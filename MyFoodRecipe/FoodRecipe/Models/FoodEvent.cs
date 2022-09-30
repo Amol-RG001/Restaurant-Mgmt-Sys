@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,11 +21,16 @@ namespace FoodRecipe.Models
         [Required, MinLength(5,ErrorMessage ="{0} is must for event details")]
         public string Description { get; set; }
 
-
+        
         [Display(Name = "Date & Time")]
         [Required(ErrorMessage="{0} cannot be empty!")]
         public DateTime EventDateTime { get; set; }
 
+
+        #region Navigation Properties to the transacation model - RegistarationForm
+        public ICollection<RegistrationForm> RegistrationForms { get; set; }
+
+        #endregion
 
     }
 }

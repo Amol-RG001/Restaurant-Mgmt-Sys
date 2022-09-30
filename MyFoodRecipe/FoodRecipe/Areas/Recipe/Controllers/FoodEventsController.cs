@@ -7,12 +7,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FoodRecipe.Data;
 using FoodRecipe.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace FoodRecipe.Areas.Recipe.Controllers
 {
     [Area("Recipe")]
-    [Authorize]
     public class FoodEventsController : Controller
     {
         private readonly ApplicationDbContext _context;

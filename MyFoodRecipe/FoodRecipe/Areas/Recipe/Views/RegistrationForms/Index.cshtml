@@ -23,7 +23,7 @@
     {
         <a class="btn btn-sm btn-success" asp-action="Create">Create New</a>
     }
-   
+
 </p>
 <table class="table">
     <thead>
@@ -32,50 +32,59 @@
                 @Html.DisplayNameFor(model => model.ParticipantName)
             </th>
 
-            @if (isUserAdmin){
+            @if (isUserAdmin)
+            {
                 <th>
                     @Html.DisplayNameFor(model => model.PhoneNumer)
                 </th>
             }
-            
+
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Address)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventName)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
             <tr class="text-danger">
-            <td>
-                @Html.DisplayFor(modelItem => item.ParticipantName)
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParticipantName)
+                </td>
                 @if (isUserAdmin)
                 {
                     <td>
-                         @Html.DisplayFor(modelItem => item.PhoneNumer)
+                        @Html.DisplayFor(modelItem => item.PhoneNumer)
                     </td>
                 }
                 <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td class="text-secondary">
+                    @Html.DisplayFor(modelItem => item.EventName)
+                </td>
+                <td>
                     @if (isUserAdmin)
                     {
 
 
                         <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.ParticipantId">Edit</a>
-                        <a class ="btn btn-sm btn-warning" asp-action="Details" asp-route-id="@item.ParticipantId">Details</a>
+                        <a class="btn btn-sm btn-warning" asp-action="Details" asp-route-id="@item.ParticipantId">Details</a>
                         <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.ParticipantId">Delete</a>
                     }
                 </td>
-        </tr>
-}
+            </tr>
+        }
     </tbody>
 </table>
+

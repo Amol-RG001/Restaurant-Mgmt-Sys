@@ -22,6 +22,10 @@ namespace FoodRecipe.Controllers
         }
 
         // GET: api/AddFoodRecipes
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AddFoodRecipe>>> GetAddFoodRecipe()
         {
@@ -29,6 +33,11 @@ namespace FoodRecipe.Controllers
         }
 
         // GET: api/AddFoodRecipes/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<AddFoodRecipe>> GetAddFoodRecipe(int id)
         {
@@ -45,6 +54,13 @@ namespace FoodRecipe.Controllers
         // PUT: api/AddFoodRecipes/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="addFoodRecipe"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAddFoodRecipe(int id, AddFoodRecipe addFoodRecipe)
         {
@@ -77,6 +93,11 @@ namespace FoodRecipe.Controllers
         // POST: api/AddFoodRecipes
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="addFoodRecipe"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<AddFoodRecipe>> PostAddFoodRecipe(AddFoodRecipe addFoodRecipe)
         {

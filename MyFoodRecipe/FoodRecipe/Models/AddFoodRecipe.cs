@@ -4,6 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FoodRecipe.Models
 {
+    /// <summary>
+    /// FoodRecipes table - store  the particular FoodRecipeId, FoodRecipeName, FoodIngredient
+    /// and FoodMakingStep data in column
+    /// 
+    ///  #region block Navigated Properties to the Master Model to FoodSubCategory
+    /// </summary>
     [Table("FoodRecipes")]
     public class AddFoodRecipe
     {
